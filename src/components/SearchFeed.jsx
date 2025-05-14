@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import { Videos } from "./";
 import { fetchFromApi } from "../utils/fetchFromApi";
 import { useParams } from "react-router-dom";
+
 const SearchFeed = () => {
   const [videos, setVideos] = useState([]);
 
   const { searchTerm } = useParams();
+  console.log(searchTerm, "helloe");
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -15,14 +17,14 @@ const SearchFeed = () => {
         `search?part=snippet&q=${searchTerm}`
       );
       console.log(response);
-      // setVideos(data);
+      setVideos(response.items);
     };
 
     fetchVideos();
-  }, []);
+  }, [searchTerm]);
 
   return (
-    <Box p={2} sx={{ overflowY: "auto", width: "90vh", flex: 2 }}>
+    <Box p={2} sx={{ overflowY: "auto", height: "90vh", flex: 2 }}>
       <Typography
         variant="h4"
         fontWeight={"bolder"}

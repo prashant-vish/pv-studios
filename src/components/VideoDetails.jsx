@@ -22,7 +22,7 @@ const VideoDetail = () => {
     );
   }, [id]);
 
-  if (!videoDetail?.snippet) return <Loader />;
+  if (!videoDetail?.snippet)  return <Loader />;
 
   const {
     snippet: { title, channelId, channelTitle },
