@@ -3,6 +3,8 @@ import { logo } from "../utils/constants.js";
 import { Box, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
+
+
 const Appbar = () => {
   return (
     <Stack

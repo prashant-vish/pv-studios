@@ -1,5 +1,4 @@
 import { Stack, Box, Typography } from "@mui/material";
-
 import { useState, useEffect } from "react";
 import { Sidebar, Videos } from "./";
 import { fetchFromApi } from "../utils/fetchFromApi";
@@ -23,6 +22,8 @@ const Feed = () => {
     <Stack
       sx={{
         flexDirection: { sx: "column", md: "row" },
+        overflow: "hidden", // Prevent outer container from scrolling
+        height: "92vh", // Set a fixed height for the container
       }}
     >
       <Box
@@ -30,8 +31,11 @@ const Feed = () => {
           height: { sx: "auto", md: "92vh" },
           borderRight: "1px solid #3d3d3d",
           px: { sx: 0, md: 2 },
+          overflowY: "auto", // Make the sidebar independently scrollable
+          position: "sticky", // Make sidebar position sticky
+          top: 0, // Stick to the top
+          width: { sx: "100%", md: "auto" }, // Responsive width
         }}
-        position="f"
       >
         <Sidebar
           selectedCategory={selectedCategory}
@@ -45,7 +49,14 @@ const Feed = () => {
           Copyright 2025 @ PV Studios
         </Typography>
       </Box>
-      <Box p={2} sx={{ overflowY: "auto", width: "90vh", flex: 2 }}>
+      <Box
+        p={2}
+        sx={{
+          overflowY: "auto",
+          flex: 2,
+          height: "92vh", // Ensure the content area has the same height
+        }}
+      >
         <Typography
           variant="h4"
           fontWeight={"bolder"}
