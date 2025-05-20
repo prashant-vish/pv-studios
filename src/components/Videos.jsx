@@ -10,9 +10,11 @@ const Videos = ({ videos, direction }) => {
     <Stack
       direction={direction || "row"}
       flexWrap="wrap"
-      justifyContent="start"
-      alignItems="start"
-      gap={2}
+      display={"flex"}
+      justifyContent="space-around"
+      alignItems="center"
+      gap={4}
+      marginTop={"2"}
     >
       {videos.map((item, idx) => (
         <Box key={idx}>
